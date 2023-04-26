@@ -1,36 +1,35 @@
 package ru.gloomyana.tests;
 
 import org.junit.jupiter.api.Test;
-import ru.gloomyana.models.ReqresInBodyModel;
-import ru.gloomyana.models.ReqresInResponseModel;
+import ru.gloomyana.models.UserBodyModel;
+import ru.gloomyana.models.UserResponseModel;
 
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static ru.gloomyana.specs.ReqresInSpec.*;
 
 
 public class ReqresInExtendedTests {
     @Test
     void successfulCreateUserTest() {
-
-        ReqresInBodyModel body = new ReqresInBodyModel();
+        UserBodyModel body = new UserBodyModel();
         body.setName("morpheus");
         body.setJob("leader");
 
-        ReqresInResponseModel response =  given()
-                .log().body()
-                .body(body)
-                .contentType(JSON)
-                .when()
-                .post("https://reqres.in/api/users")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(201)
-                .extract().as(ReqresInResponseModel.class);
+        UserResponseModel response = step("Make request for create user", () ->
+                given(userRequestSpec)
+                        .body(body)
+                        .when()
+                        .post()
+                        .then()
+                        .spec(userResponseSpec)
+                        .extract().as(UserResponseModel.class));
 
-        assertThat(response.getName()).isEqualTo("morpheus");
-        assertThat(response.getJob()).isEqualTo("leader");
+        step("Verify user name", () ->
+                assertThat(response.getName()).isEqualTo("morpheus"));
+        step("Verify user job", () ->
+                assertThat(response.getJob()).isEqualTo("leader"));
     }
 
 

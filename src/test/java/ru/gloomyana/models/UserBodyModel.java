@@ -3,6 +3,6 @@ package ru.gloomyana.models;
 import lombok.Data;
 
 @Data
-public class ReqresInBodyModel {
+public class UserBodyModel {
     String name, job;
 }
