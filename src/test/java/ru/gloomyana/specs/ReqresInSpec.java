@@ -12,19 +12,24 @@ import static org.hamcrest.Matchers.notNullValue;
 import static ru.gloomyana.helpers.CustomAllureListener.withCustomTemplates;
 
 public class ReqresInSpec {
-    public static RequestSpecification userRequestSpec = with()
+    public static RequestSpecification baseRequestSpec = with()
             .filter(withCustomTemplates())
             .log().uri()
             .log().body()
             .contentType(JSON)
-            .baseUri("https://reqres.in")
-            .basePath("/api/users");
+            .baseUri("https://reqres.in");
 
     public static ResponseSpecification userResponseSpec = new ResponseSpecBuilder()
             .log(STATUS)
             .log(BODY)
-            .expectStatusCode(201)
             .expectBody("name", notNullValue())
             .expectBody("job", notNullValue())
+            .build();
+
+    public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
+            .log(STATUS)
+            .log(BODY)
+            .expectStatusCode(400)
+            .expectBody("error", notNullValue())
             .build();
 }

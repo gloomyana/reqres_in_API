@@ -54,3 +54,9 @@ tasks.withType(Test) {
         }
     }
 }
+
+task extended_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("extended_test")
+    }
+}
