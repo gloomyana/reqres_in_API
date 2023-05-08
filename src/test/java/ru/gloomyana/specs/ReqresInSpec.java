@@ -32,4 +32,9 @@ public class ReqresInSpec {
             .expectStatusCode(400)
             .expectBody("error", notNullValue())
             .build();
+
+    public static ResponseSpecification resourceDataResponseSpec = new ResponseSpecBuilder()
+            .log(STATUS)
+            .log(BODY)
+            .build();
 }
