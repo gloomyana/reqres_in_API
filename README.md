@@ -1,5 +1,5 @@
 # Демопроект автоматизации тестирования API на [reqres.in](https://reqres.in/)
-<img title="REQRES" src="">
+<img title="REQRES" src="images/reqres.png">
 
 ## :page_facing_up: Cодержание
 - [Технологии и иструменты](#hammer_and_wrench-технологии-и-иструменты)
@@ -27,7 +27,7 @@
 ## <img width="3%" title="Jenkins" src="https://github.com/gloomyana/gloomyana/blob/main/icons/jenkins.svg"> Сборка в Jenkins
 [Сборка в Jenkins](https://jenkins.autotests.cloud/job/reqres_in_API/) 
 
-<img title="Jenkins project page" src="">
+<img title="Jenkins project page" src="images/jenkins_job.png">
 
 ## <img width="3%" title="Allure Report" src="https://github.com/gloomyana/gloomyana/blob/main/icons/allure_report.svg"> Allure отчет
 [Allure отчет](https://jenkins.autotests.cloud/job/reqres_in_API/7/allure/) 
@@ -37,11 +37,10 @@
 - **TREND** - отображает тенденцию выполнения тестов для всех запусков
 - **SUITES** - отображает распределение тестов по сьютам
 
-<img title="Allure Report" src=""> 
+<img title="Allure Report" src="images/allure_report_main.png"> 
 
 Список тестов с шагами:
 
-<img title="Allure Report test 1" src="">
+<img title="Allure Report test 1" src="images/allure_report_test1.png">
 
-<img title="Allure Report test 2" src="">
-
+<img title="Allure Report test 2" src="images/allure_report_test2.png">
